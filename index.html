@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -332,7 +333,6 @@
       box-shadow: var(--shadow-lg);
     }
     .hero-img-main img {
-      /* Reemplaza con: images/hero-smile.jpg */
       object-position: center top;
     }
     .img-placeholder {
@@ -505,6 +505,90 @@
     }
     .service-link:hover { gap: .6rem; }
 
+    /* ─── CTA BANNER ─────────────────────────────────────── */
+    #cta-banner {
+      padding: 80px 0;
+      background: var(--salvia);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-blob {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.07);
+      top: -100px;
+      right: -80px;
+      pointer-events: none;
+    }
+    .cta-blob2 {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.05);
+      bottom: -80px;
+      left: 10%;
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .cta-text {}
+    .cta-text .section-label {
+      color: rgba(255,255,255,.7);
+    }
+    .cta-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: .5rem;
+    }
+    .cta-text h2 em {
+      font-style: italic;
+      color: var(--verde-agua2);
+    }
+    .cta-text p {
+      font-size: .95rem;
+      color: rgba(255,255,255,.75);
+      max-width: 480px;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+    .btn-cta-white {
+      background: var(--white);
+      color: var(--salvia);
+      font-weight: 600;
+    }
+    .btn-cta-white:hover {
+      background: var(--verde-agua2);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.15);
+    }
+    .btn-cta-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.5);
+    }
+    .btn-cta-outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,.1);
+      transform: translateY(-2px);
+    }
+
     /* ─── INSTALACIONES ──────────────────────────────────── */
     #instalaciones {
       padding: 100px 0;
@@ -586,6 +670,18 @@
       text-transform: uppercase;
       margin-top: .2rem;
     }
+    .team-info .specialty-tag {
+      display: inline-block;
+      background: var(--verde-agua);
+      color: var(--salvia);
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .2rem .65rem;
+      border-radius: 100px;
+      margin-top: .4rem;
+    }
     .team-info p {
       font-size: .8rem;
       color: var(--carbon-light);
@@ -638,6 +734,39 @@
       color: var(--carbon-light);
     }
     .contact-item-text a:hover { color: var(--salvia); }
+
+    /* Horario */
+    .horario-box {
+      background: var(--crema);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .horario-box h4 {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--salvia);
+      margin-bottom: .85rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .horario-box h4 svg { width: 15px; height: 15px; }
+    .horario-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .83rem;
+      padding: .35rem 0;
+      border-bottom: 1px solid var(--crema-dark);
+    }
+    .horario-row:last-child { border-bottom: none; }
+    .horario-row span:first-child { color: var(--carbon); font-weight: 500; }
+    .horario-row span:last-child { color: var(--carbon-light); }
+    .horario-row.cerrado span:last-child { color: #C0392B; }
+
     .social-links {
       display: flex;
       gap: .75rem;
@@ -770,6 +899,13 @@
       transition: color var(--transition);
     }
     .footer-col a:hover { color: var(--crema); }
+    .footer-col .footer-schedule-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: .78rem;
+      color: rgba(250,247,242,.6);
+      margin-bottom: .4rem;
+    }
     .footer-bottom {
       display: flex;
       justify-content: space-between;
@@ -863,6 +999,10 @@
 
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
+
+      .cta-inner { flex-direction: column; text-align: center; }
+      .cta-actions { justify-content: center; }
+      .cta-text p { margin-inline: auto; }
     }
 
     @media (max-width: 480px) {
@@ -876,14 +1016,15 @@
       .contact-form { padding: 1.5rem; }
     }
   </style>
+
 </head>
 <body>
 
   <!-- ─── NAVBAR ─────────────────────────────────────── -->
+
   <nav id="navbar">
     <div class="container nav-inner">
       <a href="#inicio" class="nav-logo">
-        <!-- Logo: guarda tu imagen como images/logo-completo.png -->
         <img src="images/logo-completo.png" alt="Happy & Care by Laia" class="nav-logo-img" />
       </a>
       <ul class="nav-links">
@@ -893,7 +1034,7 @@
         <li><a href="#equipo">Equipo</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
-      <a href="https://wa.me/34600123456" class="btn btn-primary nav-cta" target="_blank">
+      <a href="https://wa.me/34600123455" class="btn btn-primary nav-cta" target="_blank">
         Reservar cita
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -903,16 +1044,18 @@
   </nav>
 
   <!-- Mobile menu -->
+
   <div class="mobile-menu" id="mobileMenu">
     <a href="#nosotros" class="mobile-link">Nosotros</a>
     <a href="#servicios" class="mobile-link">Servicios</a>
     <a href="#instalaciones" class="mobile-link">Instalaciones</a>
     <a href="#equipo" class="mobile-link">Equipo</a>
     <a href="#contacto" class="mobile-link">Contacto</a>
-    <a href="https://wa.me/34600123456" class="btn btn-primary" target="_blank">Reservar cita</a>
+    <a href="https://wa.me/34600123455" class="btn btn-primary" target="_blank">Reservar cita</a>
   </div>
 
   <!-- ─── HERO ───────────────────────────────────────── -->
+
   <section id="inicio">
     <div class="hero-bg"></div>
     <div class="hero-blob"></div>
@@ -929,7 +1072,7 @@
           En Happy & Care by Laia te acompañamos en cada paso con un trato cercano, profesional y lleno de cuidado. Porque tu bienestar es nuestra prioridad.
         </p>
         <div class="hero-actions">
-          <a href="https://wa.me/34600123456" class="btn btn-primary" target="_blank">
+          <a href="https://wa.me/34600123455" class="btn btn-primary" target="_blank">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
             Reservar cita por WhatsApp
           </a>
@@ -943,7 +1086,6 @@
       </div>
       <div class="hero-image-wrap">
         <div class="hero-img-main">
-          <!-- Imagen principal: guarda como images/hero-smile.jpg -->
           <img src="images/hero-smile.jpg" alt="Hero Smile" loading="lazy">
         </div>
         <div class="hero-card">
@@ -952,7 +1094,7 @@
           </div>
           <div>
             <strong>Reserva en 1 minuto</strong>
-            <p>WhatsApp: 600 12 34 56</p>
+            <p>WhatsApp: 600 12 34 55</p>
           </div>
         </div>
       </div>
@@ -960,16 +1102,15 @@
   </section>
 
   <!-- ─── NOSOTROS ───────────────────────────────────── -->
+
   <section id="nosotros">
     <div class="container">
       <div class="about-grid">
         <div class="about-images reveal">
           <div class="about-img-main">
-            <!-- Imagen: guarda como images/clinica-exterior.jpg o images/laia-portrait.jpg -->
             <img src="images/laia-portrait.jpg" alt="Laia Portrait" loading="lazy">
           </div>
           <div class="about-img-secondary">
-            <!-- Imagen: guarda como images/clinica-interior.jpg -->
             <img src="images/clinica-interior.jpg" alt="Clinica Interior" loading="lazy">
           </div>
         </div>
@@ -1015,6 +1156,7 @@
   </section>
 
   <!-- ─── SERVICIOS ──────────────────────────────────── -->
+
   <section id="servicios">
     <div class="container">
       <div class="services-header reveal">
@@ -1025,7 +1167,6 @@
       <div class="services-grid">
         <div class="service-card reveal reveal-delay-1">
           <div class="service-img">
-            <!-- images/servicio-revision.jpg -->
             <img src="images/servicio-revision.jpg" alt="Servicio Revision" loading="lazy">
           </div>
           <div class="service-body">
@@ -1037,7 +1178,6 @@
         </div>
         <div class="service-card reveal reveal-delay-2">
           <div class="service-img">
-            <!-- images/servicio-limpieza.jpg -->
             <img src="images/servicio-limpieza.jpg" alt="Servicio Limpieza" loading="lazy">
           </div>
           <div class="service-body">
@@ -1049,7 +1189,6 @@
         </div>
         <div class="service-card reveal reveal-delay-3">
           <div class="service-img">
-            <!-- images/servicio-empastes.jpg -->
             <img src="images/servicio-empastes.jpg" alt="Servicio Empastes" loading="lazy">
           </div>
           <div class="service-body">
@@ -1061,7 +1200,6 @@
         </div>
         <div class="service-card reveal reveal-delay-1">
           <div class="service-img">
-            <!-- images/servicio-ortodoncia.jpg -->
             <img src="images/servicio-ortodoncia.jpg" alt="Servicio Ortodoncia" loading="lazy">
           </div>
           <div class="service-body">
@@ -1073,7 +1211,6 @@
         </div>
         <div class="service-card reveal reveal-delay-2">
           <div class="service-img">
-            <!-- images/servicio-estetica.jpg -->
             <img src="images/servicio-estetica.jpg" alt="Servicio Estetica" loading="lazy">
           </div>
           <div class="service-body">
@@ -1085,7 +1222,6 @@
         </div>
         <div class="service-card reveal reveal-delay-3">
           <div class="service-img">
-            <!-- images/servicio-endodoncia.jpg -->
             <img src="images/servicio-endodoncia.jpg" alt="Servicio Endodoncia" loading="lazy">
           </div>
           <div class="service-body">
@@ -1099,7 +1235,32 @@
     </div>
   </section>
 
+  <!-- ─── CTA BANNER ────────────────────────────────── -->
+
+  <section id="cta-banner">
+    <div class="cta-blob"></div>
+    <div class="cta-blob2"></div>
+    <div class="container cta-inner reveal">
+      <div class="cta-text">
+        <span class="section-label">Primera visita</span>
+        <h2>¿Vienes por primera vez?<br><em>La revisión inicial es gratuita</em></h2>
+        <p>Sin compromiso, sin sorpresas. Ven a conocernos y te explicamos todo lo que necesitas saber sobre tu salud bucodental.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://wa.me/34600123455" class="btn btn-cta-white" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Reservar por WhatsApp
+        </a>
+        <a href="tel:+34934550022" class="btn btn-cta-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Llamar ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── INSTALACIONES ──────────────────────────────── -->
+
   <section id="instalaciones">
     <div class="container">
       <div class="installations-header reveal">
@@ -1109,23 +1270,18 @@
       </div>
       <div class="gallery-grid reveal reveal-delay-1">
         <div class="gallery-item">
-          <!-- images/instalacion-principal.jpg -->
           <img src="images/instalacion-principal.jpg" alt="Instalacion Principal" loading="lazy">
         </div>
         <div class="gallery-item">
-          <!-- images/instalacion-sala.jpg -->
           <img src="images/instalacion-sala.jpg" alt="Instalacion Sala" loading="lazy">
         </div>
         <div class="gallery-item">
-          <!-- images/instalacion-recepcion.jpg -->
           <img src="images/instalacion-recepcion.jpg" alt="Instalacion Recepcion" loading="lazy">
         </div>
         <div class="gallery-item">
-          <!-- images/instalacion-gabinete.jpg -->
           <img src="images/instalacion-gabinete.jpg" alt="Instalacion Gabinete" loading="lazy">
         </div>
         <div class="gallery-item">
-          <!-- images/instalacion-detalle.jpg -->
           <img src="images/instalacion-detalle.jpg" alt="Instalacion Detalle" loading="lazy">
         </div>
       </div>
@@ -1133,6 +1289,7 @@
   </section>
 
   <!-- ─── EQUIPO ─────────────────────────────────────── -->
+
   <section id="equipo">
     <div class="container">
       <div class="team-header reveal">
@@ -1141,44 +1298,94 @@
         <p style="margin-top:.75rem; color:var(--carbon-light);">Profesionales comprometidos con tu salud y bienestar.</p>
       </div>
       <div class="team-grid">
-        <div class="team-card reveal reveal-delay-1">
-          <div class="team-photo">
-            <!-- images/laia-portrait.jpg -->
-            <img src="images/laia-portrait.jpg" alt="Equipo Laia" loading="lazy">
-          </div>
-          <div class="team-info">
-            <h3>Laia Jurado</h3>
-            <p class="role">Directora · Odontóloga</p>
-            <p>Fundadora de Happy & Care. Apasionada del trato humano y la odontología general y preventiva.</p>
-          </div>
-        </div>
-        <div class="team-card reveal reveal-delay-2">
-          <div class="team-photo">
-            <!-- images/equipo-higienista.jpg -->
-            <img src="images/equipo-higienista.jpg" alt="Equipo Higienista" loading="lazy">
-          </div>
-          <div class="team-info">
-            <h3>Higienista Dental</h3>
-            <p class="role">Higiene y Prevención</p>
-            <p>Experta en limpiezas y educación bucodental para toda la familia.</p>
-          </div>
-        </div>
-        <div class="team-card reveal reveal-delay-3">
-          <div class="team-photo">
-            <!-- images/equipo-auxiliar.jpg -->
-            <img src="images/equipo-auxiliar.jpg" alt="Equipo Auxiliar" loading="lazy">
-          </div>
-          <div class="team-info">
-            <h3>Auxiliar Clínica</h3>
-            <p class="role">Atención al Paciente</p>
-            <p>Primera sonrisa que verás al llegar. Siempre dispuesta a resolver tus dudas.</p>
-          </div>
-        </div>
+
+```
+    <!-- Laia — Directora / Revisión y diagnóstico -->
+    <div class="team-card reveal reveal-delay-1">
+      <div class="team-photo">
+        <img src="images/laia-portrait.jpg" alt="Laia Jurado" loading="lazy">
+      </div>
+      <div class="team-info">
+        <h3>Laia Jurado</h3>
+        <p class="role">Directora</p>
+        <span class="specialty-tag">Revisión y diagnóstico</span>
+        <p>Fundadora de Happy & Care. Apasionada del trato humano y la odontología general y preventiva.</p>
       </div>
     </div>
+
+    <!-- Higienista — Limpieza dental -->
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-photo">
+        <img src="images/equipo-higienista.jpg" alt="Higienista Dental" loading="lazy">
+      </div>
+      <div class="team-info">
+        <h3>Higienista Dental</h3>
+        <p class="role">Higiene y Prevención</p>
+        <span class="specialty-tag">Limpieza dental</span>
+        <p>Experta en limpiezas y educación bucodental para toda la familia.</p>
+      </div>
+    </div>
+
+    <!-- Odontóloga — Empastes -->
+    <div class="team-card reveal reveal-delay-3">
+      <div class="team-photo">
+        <img src="images/equipo-odontologa.jpg" alt="Odontóloga" loading="lazy">
+      </div>
+      <div class="team-info">
+        <h3>Odontóloga</h3>
+        <p class="role">Odontología Conservadora</p>
+        <span class="specialty-tag">Empastes y obturaciones</span>
+        <p>Especialista en restauraciones dentales con resultados estéticos y duraderos.</p>
+      </div>
+    </div>
+
+    <!-- Ortodoncista -->
+    <div class="team-card reveal reveal-delay-1">
+      <div class="team-photo">
+        <img src="images/equipo-ortodoncista.jpg" alt="Ortodoncista" loading="lazy">
+      </div>
+      <div class="team-info">
+        <h3>Ortodoncista</h3>
+        <p class="role">Especialista en Ortodoncia</p>
+        <span class="specialty-tag">Ortodoncia</span>
+        <p>Diseña planes de tratamiento personalizados para alinear tu sonrisa en el menor tiempo posible.</p>
+      </div>
+    </div>
+
+    <!-- Especialista Estética -->
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-photo">
+        <img src="images/equipo-estetica.jpg" alt="Especialista Estética Dental" loading="lazy">
+      </div>
+      <div class="team-info">
+        <h3>Especialista en Estética</h3>
+        <p class="role">Estética Dental</p>
+        <span class="specialty-tag">Estética dental</span>
+        <p>Combina técnica y arte para conseguir sonrisas naturales, armoniosas y luminosas.</p>
+      </div>
+    </div>
+
+    <!-- Endodoncista -->
+    <div class="team-card reveal reveal-delay-3">
+      <div class="team-photo">
+        <img src="images/equipo-endodoncista.jpg" alt="Endodoncista" loading="lazy">
+      </div>
+      <div class="team-info">
+        <h3>Endodoncista</h3>
+        <p class="role">Especialista en Endodoncia</p>
+        <span class="specialty-tag">Endodoncia</span>
+        <p>Salva dientes comprometidos con técnica de precisión y máximo confort para el paciente.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+```
+
   </section>
 
   <!-- ─── CONTACTO ───────────────────────────────────── -->
+
   <section id="contacto">
     <div class="container">
       <div class="contact-grid">
@@ -1186,107 +1393,132 @@
           <span class="section-label">Estamos aquí para ti</span>
           <h2 class="section-title">¿En qué podemos <em>ayudarte?</em></h2>
           <p>Escríbenos, llámanos o pásate por la clínica. Estaremos encantados de atenderte.</p>
-          <div class="contact-items">
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-              </div>
-              <div class="contact-item-text">
-                <strong>Teléfono</strong>
-                <a href="tel:+34934550022">934 55 00 22</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-              </div>
-              <div class="contact-item-text">
-                <strong>WhatsApp (citas)</strong>
-                <a href="https://wa.me/34665431475" target="_blank">600 12 34 56</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-              </div>
-              <div class="contact-item-text">
-                <strong>Email</strong>
-                <a href="mailto:asesora@happyandcare.com">asesora@happyandcare.com</a>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              </div>
-              <div class="contact-item-text">
-                <strong>Dirección</strong>
-                <span>Carrer del Riu, 11, 08780 Pallejà, Barcelona</span>
-              </div>
-            </div>
-          </div>
-          <div class="social-links">
-            <a href="https://www.instagram.com/hapyandcare.laia" target="_blank" class="social-link" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-          </div>
+
+```
+      <!-- Horario -->
+      <div class="horario-box">
+        <h4>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          Horario de atención
+        </h4>
+        <div class="horario-row">
+          <span>Lunes – Jueves</span>
+          <span>9:00 – 14:00 · 16:00 – 20:00</span>
         </div>
-        <div class="contact-form reveal reveal-delay-2">
-          <h3>Envíanos un mensaje</h3>
-          <form id="contactForm" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
-              </div>
-              <div class="form-group">
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email">Correo electrónico</label>
-              <input type="email" id="email" name="email" placeholder="tu@email.com" required />
-            </div>
-            <div class="form-group">
-              <label for="telefono">Teléfono (opcional)</label>
-              <input type="tel" id="telefono" name="telefono" placeholder="6XX XXX XXX" />
-            </div>
-            <div class="form-group">
-              <label for="servicio">Servicio de interés</label>
-              <select id="servicio" name="servicio">
-                <option value="">Selecciona un servicio...</option>
-                <option>Revisión y diagnóstico</option>
-                <option>Limpieza dental</option>
-                <option>Empastes</option>
-                <option>Ortodoncia</option>
-                <option>Estética dental</option>
-                <option>Endodoncia</option>
-                <option>Otro</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="mensaje">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" placeholder="¿En qué podemos ayudarte?"></textarea>
-            </div>
-            <div class="form-check">
-              <input type="checkbox" id="privacidad" name="privacidad" required />
-              <label for="privacidad">He leído y acepto la <a href="#">política de privacidad</a></label>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-          </form>
+        <div class="horario-row">
+          <span>Viernes</span>
+          <span>9:00 – 14:00</span>
+        </div>
+        <div class="horario-row cerrado">
+          <span>Sábado y Domingo</span>
+          <span>Cerrado</span>
         </div>
       </div>
-      <div class="map-wrap reveal">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.8!2d1.9983!3d41.4396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498f3b6c9c0d7%3A0x1!2sCarrer+del+Riu%2C+11%2C+08780+Pallej%C3%A0!5e0!3m2!1ses!2ses!4v1234567890"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Ubicación Happy & Care by Laia">
-        </iframe>
+
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Teléfono</strong>
+            <a href="tel:+34934550022">934 55 00 22</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>WhatsApp (citas)</strong>
+            <a href="https://wa.me/34600123455" target="_blank">600 12 34 55</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            <a href="mailto:asesora@happyandcare.com">asesora@happyandcare.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Dirección</strong>
+            <span>Carrer del Riu, 11, 08780 Pallejà, Barcelona</span>
+          </div>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/hapyandcare.laia" target="_blank" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
       </div>
     </div>
+    <div class="contact-form reveal reveal-delay-2">
+      <h3>Envíanos un mensaje</h3>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono (opcional)</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="6XX XXX XXX" />
+        </div>
+        <div class="form-group">
+          <label for="servicio">Servicio de interés</label>
+          <select id="servicio" name="servicio">
+            <option value="">Selecciona un servicio...</option>
+            <option>Revisión y diagnóstico</option>
+            <option>Limpieza dental</option>
+            <option>Empastes</option>
+            <option>Ortodoncia</option>
+            <option>Estética dental</option>
+            <option>Endodoncia</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="¿En qué podemos ayudarte?"></textarea>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="privacidad" name="privacidad" required />
+          <label for="privacidad">He leído y acepto la <a href="#">política de privacidad</a></label>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+  <div class="map-wrap reveal">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.8!2d1.9983!3d41.4396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a498f3b6c9c0d7%3A0x1!2sCarrer+del+Riu%2C+11%2C+08780+Pallej%C3%A0!5e0!3m2!1ses!2ses!4v1234567890"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación Happy & Care by Laia">
+    </iframe>
+  </div>
+</div>
+```
+
   </section>
 
   <!-- ─── FOOTER ─────────────────────────────────────── -->
+
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -1313,11 +1545,14 @@
           <a href="#contacto">Contacto</a>
         </div>
         <div class="footer-col">
-          <h4>Contacto</h4>
+          <h4>Horario</h4>
+          <div class="footer-schedule-item"><span>Lun – Jue</span><span>9:00–14:00 · 16:00–20:00</span></div>
+          <div class="footer-schedule-item"><span>Viernes</span><span>9:00–14:00</span></div>
+          <div class="footer-schedule-item"><span>Sáb / Dom</span><span>Cerrado</span></div>
+          <h4 style="margin-top:1.25rem;">Contacto</h4>
           <a href="tel:+34934550022">934 55 00 22</a>
-          <a href="https://wa.me/34600123456" target="_blank">WhatsApp: 600 12 34 56</a>
+          <a href="https://wa.me/34600123455" target="_blank">WhatsApp: 600 12 34 55</a>
           <a href="mailto:asesora@happyandcare.com">asesora@happyandcare.com</a>
-          <a href="https://maps.google.com" target="_blank">Carrer del Riu, 11<br>08780 Pallejà, Barcelona</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1332,7 +1567,8 @@
   </footer>
 
   <!-- WhatsApp flotante -->
-  <a href="https://wa.me/34600123456" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+
+  <a href="https://wa.me/34600123455" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
@@ -1384,5 +1620,6 @@
       }, 3000);
     }
   </script>
+
 </body>
 </html>
